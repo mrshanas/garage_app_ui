@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:garage_app_ui/utils/constants.dart';
+import 'package:garage_app_ui/widgets/cards/service_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -29,7 +30,7 @@ class HomePage extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.location_on,
-                    color: kPrimaryColor,
+                    color: AppColors.kPrimaryColor,
                   ),
                   Text(
                     'California',
@@ -54,42 +55,150 @@ class HomePage extends StatelessWidget {
           const SizedBox(width: 20),
         ],
       ),
-      body: ListView(
-        children: [
-          const SizedBox(height: 20),
-          Row(
-            children: [
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  child: Row(
-                    children: [
-                      const Icon(Icons.search),
-                      TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Search Services',
-                          hintStyle: TextStyle(
-                            color: Colors.grey[700],
-                          ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        child: ListView(
+          children: [
+            const SizedBox(height: 20),
+            Row(
+              children: [
+                Expanded(
+                  flex: 4,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 10,
+                    ),
+                    height: 60.0,
+                    decoration: BoxDecoration(
+                      color: AppColors.kLightGray,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: TextField(
+                      style: const TextStyle(fontSize: 25),
+                      decoration: InputDecoration(
+                        hintText: 'Search services',
+                        hintStyle: const TextStyle(fontSize: 20),
+                        border: InputBorder.none,
+                        prefixIcon: Icon(
+                          Icons.search,
+                          color: AppColors.kDarkGray,
+                          size: 40,
                         ),
                       ),
-                    ],
+                    ),
                   ),
                 ),
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.tune,
-                  color: kPrimaryColor,
+                const SizedBox(
+                  width: 10,
                 ),
-              )
-            ],
-          ),
-        ],
+                Expanded(
+                  child: Container(
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: AppColors.kPrimaryColor,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(
+                      Icons.tune,
+                      color: AppColors.kWhite,
+                    ),
+                  ),
+                )
+              ],
+            ),
+
+            const SizedBox(height: 20),
+            // services banner
+
+            Expanded(
+              child: Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                    color: AppColors.kLightGray,
+                    borderRadius: BorderRadius.circular(10)),
+                child: Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Get your services from \nyour location',
+                          style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        Container(
+                          width: 140,
+                          height: 40,
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          decoration: BoxDecoration(
+                            color: AppColors.kPrimaryColor,
+                            borderRadius: BorderRadius.circular(14),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'Find Service',
+                              style: TextStyle(
+                                color: AppColors.kWhite,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    const SizedBox(width: 20),
+                    Expanded(
+                      child: Image.asset(
+                        'assets/images/garage.png',
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+
+            // service cards
+            const SizedBox(
+              height: 20,
+            ),
+
+            const Text(
+              'Book a service',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+
+            const SizedBox(
+              height: 20,
+            ),
+
+            Row(
+              children: const [
+                Expanded(
+                  child: ServiceCard(
+                    serviceName: 'Vehicle Service',
+                    icon: Icons.construction_outlined,
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Expanded(
+                  child: ServiceCard(
+                    serviceName: 'RSA Service',
+                    icon: Icons.toys_outlined,
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
