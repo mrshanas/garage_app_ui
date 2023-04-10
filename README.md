@@ -1,4 +1,5 @@
 ## Made by [mrshanas](https://scribbles.mrshanas.me)
 
 ### UI
-![](./assets/images/garage.png)
+
+![](./assets/images/ig_ui_1.webp)
