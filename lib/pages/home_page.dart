@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:hidden_drawer_menu/hidden_drawer_menu.dart';
 
 import 'package:garage_app_ui/utils/constants.dart';
 import 'package:garage_app_ui/widgets/service_card.dart';
@@ -19,52 +20,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        elevation: 0,
-        leading: const Icon(
-          Icons.sort,
-          color: Colors.black,
-        ),
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 0),
-              decoration: BoxDecoration(
-                color: Colors.grey[200],
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.location_on,
-                    color: AppColors.kPrimaryColor,
-                  ),
-                  Text(
-                    'California',
-                    style: TextStyle(
-                      color: Colors.grey[700],
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Icon(
-                    Icons.expand_more_rounded,
-                    color: Colors.grey[700],
-                  )
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(width: 15),
-          const Icon(
-            Icons.notifications,
-            color: Colors.black,
-          ),
-          const SizedBox(width: 20),
-        ],
-      ),
+
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: AppColors.kWhite,
@@ -290,11 +246,15 @@ class _HomePageState extends State<HomePage> {
               location: 'House 57, RoadB, Block A, Birmingham',
               rating: 4.5,
             ),
+            const SizedBox(height: 20),
+
             const ServiceTile(
               title: 'Gotham Car Reparation',
               location: 'House 57, RoadB, Block A, Birmingham',
               rating: 4.5,
             ),
+            const SizedBox(height: 20),
+
             const ServiceTile(
               title: 'Gotham Car Reparation',
               location: 'House 57, RoadB, Block A, Birmingham',

@@ -26,7 +26,7 @@ class ServiceTile extends StatelessWidget {
           color: AppColors.kPrimaryColor,
           borderRadius: BorderRadius.circular(10.0),
         ),
-        padding: const EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(16.0),
         child: Icon(
           Icons.blur_on,
           color: AppColors.kWhite,
@@ -64,15 +64,15 @@ class ServiceTile extends StatelessWidget {
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(
-            height: 5,
-          ),
+          // const SizedBox(
+          //   height: 5,
+          // ),
           Text(
             title,
             style: const TextStyle(
               fontWeight: FontWeight.w600,
               color: Colors.black,
-              fontSize: 20,
+              fontSize: 18,
             ),
           ),
           Text(location),
