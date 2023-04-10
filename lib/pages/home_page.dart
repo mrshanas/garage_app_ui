@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 import 'package:garage_app_ui/utils/constants.dart';
 import 'package:garage_app_ui/widgets/service_card.dart';
-
 import '../widgets/service_tile.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +64,58 @@ class HomePage extends StatelessWidget {
           ),
           const SizedBox(width: 20),
         ],
+      ),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: AppColors.kWhite,
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 20,
+              color: AppColors.kPrimaryColor.withOpacity(.1),
+            )
+          ],
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 15.0,
+              vertical: 10,
+            ),
+            child: GNav(
+              activeColor: AppColors.kWhite,
+              duration: const Duration(milliseconds: 400),
+              iconSize: 24,
+              gap: 8,
+              rippleColor: AppColors.kPrimaryColor,
+              tabBackgroundColor: AppColors.kPrimaryColor,
+              padding: const EdgeInsets.all(14),
+              tabs: const [
+                GButton(
+                  icon: Icons.home_outlined,
+                  text: 'Home',
+                ),
+                GButton(
+                  icon: Icons.directions_car_outlined,
+                  text: 'Cars',
+                ),
+                GButton(
+                  icon: Icons.construction_outlined,
+                  text: 'Services',
+                ),
+                GButton(
+                  icon: Icons.person_outline,
+                  text: 'Profile',
+                )
+              ],
+              selectedIndex: _selectedIndex,
+              onTabChange: (index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              },
+            ),
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10.0),
