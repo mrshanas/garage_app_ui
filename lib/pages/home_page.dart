@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:garage_app_ui/utils/constants.dart';
-import 'package:garage_app_ui/widgets/cards/service_card.dart';
+import 'package:garage_app_ui/widgets/service_card.dart';
+
+import '../widgets/service_tile.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -196,7 +199,48 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ],
-            )
+            ),
+            const SizedBox(height: 20),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Text(
+                  'Near you',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 20.0,
+                  ),
+                ),
+                Text(
+                  'See all',
+                  style: TextStyle(
+                    color: AppColors.kPrimaryColor,
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w500,
+                  ),
+                )
+              ],
+            ),
+            const SizedBox(height: 20),
+
+            // List tiles
+            const ServiceTile(
+              title: 'Gotham Car Reparation',
+              location: 'House 57, RoadB, Block A, Birmingham',
+              rating: 4.5,
+            ),
+            const ServiceTile(
+              title: 'Gotham Car Reparation',
+              location: 'House 57, RoadB, Block A, Birmingham',
+              rating: 4.5,
+            ),
+            const ServiceTile(
+              title: 'Gotham Car Reparation',
+              location: 'House 57, RoadB, Block A, Birmingham',
+              rating: 4.5,
+            ),
           ],
         ),
       ),
