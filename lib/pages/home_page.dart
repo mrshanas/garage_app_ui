@@ -20,7 +20,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: AppColors.kWhite,
@@ -125,57 +124,56 @@ class _HomePageState extends State<HomePage> {
                 )
               ],
             ),
-
             const SizedBox(height: 20),
             // services banner
 
-            Expanded(
-              child: Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                    color: AppColors.kLightGray,
-                    borderRadius: BorderRadius.circular(10)),
-                child: Row(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'Get your services from \nyour location',
-                          style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                          ),
+            Container(
+              height: MediaQuery.of(context).size.height*0.2,
+              width: MediaQuery.of(context).size.width,
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  color: AppColors.kLightGray,
+                  borderRadius: BorderRadius.circular(10)),
+              child: Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Get your services from \nyour location',
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
                         ),
-                        const SizedBox(height: 20),
-                        Container(
-                          width: 140,
-                          height: 40,
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          decoration: BoxDecoration(
-                            color: AppColors.kPrimaryColor,
-                            borderRadius: BorderRadius.circular(14),
-                          ),
-                          child: Center(
-                            child: Text(
-                              'Find Service',
-                              style: TextStyle(
-                                color: AppColors.kWhite,
-                                fontSize: 16,
-                              ),
+                      ),
+                      const SizedBox(height: 20),
+                      Container(
+                        width: 140,
+                        height: 40,
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        decoration: BoxDecoration(
+                          color: AppColors.kPrimaryColor,
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Find Service',
+                            style: TextStyle(
+                              color: AppColors.kWhite,
+                              fontSize: 16,
                             ),
                           ),
-                        )
-                      ],
-                    ),
-                    const SizedBox(width: 20),
-                    Expanded(
-                      child: Image.asset(
-                        'assets/images/garage.png',
-                      ),
-                    )
-                  ],
-                ),
+                        ),
+                      )
+                    ],
+                  ),
+                  const SizedBox(width: 5),
+                  Image.asset(
+                    'assets/images/garage.png',
+                    height: 50,
+                    width: 50,
+                  )
+                ],
               ),
             ),
 
@@ -208,7 +206,7 @@ class _HomePageState extends State<HomePage> {
                   width: 10,
                 ),
                 Expanded(
-                  child: ServiceCard(
+                    child: ServiceCard(
                     serviceName: 'RSA Service',
                     icon: Icons.toys_outlined,
                   ),
