@@ -74,9 +74,8 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10.0),
-        child: ListView(
+        child: Column(
           children: [
-            const SizedBox(height: 20),
             Row(
               children: [
                 Expanded(
@@ -125,138 +124,146 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             const SizedBox(height: 20),
-            // services banner
-
-            Container(
-              height: MediaQuery.of(context).size.height*0.2,
-              width: MediaQuery.of(context).size.width,
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                  color: AppColors.kLightGray,
-                  borderRadius: BorderRadius.circular(10)),
-              child: Row(
+            Flexible(
+              child: ListView(
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Get your services from \nyour location',
-                        style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold,
+                  // const SizedBox(height: 20),
+
+                  // services banner
+
+                  Container(
+                    height: MediaQuery.of(context).size.height*0.2,
+                    width: MediaQuery.of(context).size.width,
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        color: AppColors.kLightGray,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Row(
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
+                              'Get your services from \nyour location',
+                              style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 20),
+                            Container(
+                              width: 140,
+                              height: 40,
+                              padding: const EdgeInsets.symmetric(horizontal: 20),
+                              decoration: BoxDecoration(
+                                color: AppColors.kPrimaryColor,
+                                borderRadius: BorderRadius.circular(14),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'Find Service',
+                                  style: TextStyle(
+                                    color: AppColors.kWhite,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                        const SizedBox(width: 5),
+                        Image.asset(
+                          'assets/images/garage.png',
+                          height: 50,
+                          width: 50,
+                        )
+                      ],
+                    ),
+                  ),
+
+                  // service cards
+                  const SizedBox(
+                    height: 20,
+                  ),
+
+                  const Text(
+                    'Book a service',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
+                  const SizedBox(
+                    height: 20,
+                  ),
+
+                  Row(
+                    children: const [
+                      Expanded(
+                        child: ServiceCard(
+                          serviceName: 'Vehicle Service',
+                          icon: Icons.construction_outlined,
                         ),
                       ),
-                      const SizedBox(height: 20),
-                      Container(
-                        width: 140,
-                        height: 40,
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        decoration: BoxDecoration(
-                          color: AppColors.kPrimaryColor,
-                          borderRadius: BorderRadius.circular(14),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Expanded(
+                          child: ServiceCard(
+                          serviceName: 'RSA Service',
+                          icon: Icons.toys_outlined,
                         ),
-                        child: Center(
-                          child: Text(
-                            'Find Service',
-                            style: TextStyle(
-                              color: AppColors.kWhite,
-                              fontSize: 16,
-                            ),
-                          ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Near you',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20.0,
+                        ),
+                      ),
+                      Text(
+                        'See all',
+                        style: TextStyle(
+                          color: AppColors.kPrimaryColor,
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w500,
                         ),
                       )
                     ],
                   ),
-                  const SizedBox(width: 5),
-                  Image.asset(
-                    'assets/images/garage.png',
-                    height: 50,
-                    width: 50,
-                  )
+                  const SizedBox(height: 20),
+
+                  // List tiles
+                  const ServiceTile(
+                    title: 'Gotham Car Reparation',
+                    location: 'House 57, RoadB, Block A, Birmingham',
+                    rating: 4.5,
+                  ),
+                  const SizedBox(height: 20),
+
+                  const ServiceTile(
+                    title: 'Gotham Car Reparation',
+                    location: 'House 57, RoadB, Block A, Birmingham',
+                    rating: 4.5,
+                  ),
+                  const SizedBox(height: 20),
+
+                  const ServiceTile(
+                    title: 'Gotham Car Reparation',
+                    location: 'House 57, RoadB, Block A, Birmingham',
+                    rating: 4.5,
+                  ),
                 ],
               ),
-            ),
-
-            // service cards
-            const SizedBox(
-              height: 20,
-            ),
-
-            const Text(
-              'Book a service',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-
-            const SizedBox(
-              height: 20,
-            ),
-
-            Row(
-              children: const [
-                Expanded(
-                  child: ServiceCard(
-                    serviceName: 'Vehicle Service',
-                    icon: Icons.construction_outlined,
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Expanded(
-                    child: ServiceCard(
-                    serviceName: 'RSA Service',
-                    icon: Icons.toys_outlined,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Text(
-                  'Near you',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 20.0,
-                  ),
-                ),
-                Text(
-                  'See all',
-                  style: TextStyle(
-                    color: AppColors.kPrimaryColor,
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w500,
-                  ),
-                )
-              ],
-            ),
-            const SizedBox(height: 20),
-
-            // List tiles
-            const ServiceTile(
-              title: 'Gotham Car Reparation',
-              location: 'House 57, RoadB, Block A, Birmingham',
-              rating: 4.5,
-            ),
-            const SizedBox(height: 20),
-
-            const ServiceTile(
-              title: 'Gotham Car Reparation',
-              location: 'House 57, RoadB, Block A, Birmingham',
-              rating: 4.5,
-            ),
-            const SizedBox(height: 20),
-
-            const ServiceTile(
-              title: 'Gotham Car Reparation',
-              location: 'House 57, RoadB, Block A, Birmingham',
-              rating: 4.5,
             ),
           ],
         ),
